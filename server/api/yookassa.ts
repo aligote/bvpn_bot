@@ -1,5 +1,5 @@
 
-
+import { kv } from '@vercel/kv';
 const client_db = useStorage('clients')
 
 
@@ -24,8 +24,18 @@ const { event: eventType, object } = body;
 
 if (eventType === 'payment.succeeded') {
                   const { id, amount, metadata } = object;
-                  await client_db.setItem(id, object)
-                  const storedObject = await client_db.getItem(id);
-console.log('id ->', id, 'amount -->', amount, 'metadata ->>>', metadata)
-console.log('\n данные из хранилища --------------- >', storedObject)
+
+
+
+  // Сохраняем данные в KV
+  await kv.set('some_key', { userId: '123', name: 'John Doe' });
+
+  // Получаем данные из KV
+  const user = await kv.get('some_key');
+  console.log('user ->>>>>>..', user)
+                  
 }})
+
+
+
+
