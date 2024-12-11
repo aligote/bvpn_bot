@@ -93,11 +93,11 @@ console.log('\n данные из хранилища --------------- >', storedO
 
 
 
-  id -> 2eeb31fd-000f-5000-8000-1e0aeb00a6c0 
-  amount --> 
-  { value: '12.00', currency: 'RUB' }
-   metadata ->>> {
-    pay_from: 'telegram',
-    user_id: '561085449',
-    cms_name: 'yookassa_sdk_python'
-  }
+  // id -> 2eeb31fd-000f-5000-8000-1e0aeb00a6c0 
+  // amount --> 
+  // { value: '12.00', currency: 'RUB' }
+  //  metadata ->>> {
+  //   pay_from: 'telegram',
+  //   user_id: '561085449',
+  //   cms_name: 'yookassa_sdk_python'
+  // }
