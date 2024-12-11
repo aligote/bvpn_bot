@@ -8,15 +8,15 @@ export default defineNuxtConfig({
   nitro: { storage: {
     clients: {
       driver: 'fs',
-      base: './.data/clients'
+      base: './dt/clients'
     },
     db_configs: {
       driver: 'fs',
-      base: './.data/configs'
+      base: './dt/configs'
     },
     disable_buying: {
       driver: 'fs',
-      base: './.data/disable-buying'
+      base: './dt/disable-buying'
     },
   } },
   compatibilityDate: '2024-12-04'
