@@ -1,6 +1,6 @@
 //   import { defineEventHandler, readBody } from 'h3';
 
-import { readBody } from "h3";
+const client_db = useStorage('clients')
 
 //   import axios from 'axios';
 
@@ -22,9 +22,14 @@ export default defineEventHandler(async (event) => {
 
 const body = await readBody(event) 
 const { event: eventType, object } = body; 
+
+
 if (eventType === 'payment.succeeded') {
                   const { id, amount, metadata } = object;
+                  await client_db.setItem(id, object)
+                  const storedObject = await client_db.getItem(id);
 console.log('id ->', id, 'amount -->', amount, 'metadata ->>>', metadata)
+console.log('\n данные из хранилища --------------- >', storedObject)
 }
 
 //       try {
@@ -85,3 +90,14 @@ console.log('id ->', id, 'amount -->', amount, 'metadata ->>>', metadata)
       return signature === `Bearer ${hash}`;
   }
   
+
+
+
+  id -> 2eeb31fd-000f-5000-8000-1e0aeb00a6c0 
+  amount --> 
+  { value: '12.00', currency: 'RUB' }
+   metadata ->>> {
+    pay_from: 'telegram',
+    user_id: '561085449',
+    cms_name: 'yookassa_sdk_python'
+  }
