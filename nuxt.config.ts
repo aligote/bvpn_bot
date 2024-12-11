@@ -19,4 +19,5 @@ export default defineNuxtConfig({
       base: './.data/disable-buying'
     },
   } },
+  compatibilityDate: '2024-12-04'
 });
